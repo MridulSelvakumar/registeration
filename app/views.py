@@ -23,7 +23,12 @@ def registration(request):
             MPFDO=pfd.save(commit=False)
             MPFDO.username=MUFDO
             MPFDO.save()
-            
+            send_mail('regsistration',
+            ' Thank U ur Registration is scuccessfull',
+            'mridul07adih@gmail.com',
+            [MUFDO.email],
+            fail_silently=False,
+            )
             return HttpResponse('Registartion Is Successfull')
         else:
             return HttpResponse('Invalid Data')
